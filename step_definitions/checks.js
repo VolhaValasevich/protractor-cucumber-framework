@@ -9,18 +9,6 @@ Then(/^"([^"]*)" should( not)? be visible$/, async (alias, notArg) => {
     return expect(result).to.be.equal(!notArg);
 });
 
-Then(/^Count of "([^"]*)" should( not)? be "([^"]*)"$/, async (alias, notArg, expectedNumber) => {
-    let element = elementHelper.getPageObjectElement(alias);
-    let result = await element.count();
-    expectedNumber = parseInt(expectedNumber);
-    if (notArg) {
-        return expect(result).to.not.equal(expectedNumber);
-    }
-    else {
-        return expect(result).to.equal(expectedNumber);
-    }
-});
-
 Then(/^Text of "([^"]*)" should( not)? contain "([^"]*)"$/, async (alias, notArg, textToContain) => {
     let element = elementHelper.getPageObjectElement(alias);
     let elementText = await element.getText();
@@ -41,12 +29,12 @@ Then(/^Text of "([^"]*)" should( not)? equal "([^"]*)"$/, async (alias, notArg, 
     }
 });
 
-Then(/^Page title should( not)? be "([^"]*)"$/, async (notArg, text) => {
+Then(/^Page title should( not)? contain "([^"]*)"$/, async (notArg, text) => {
     let pageTitle = await browser.getTitle();
     if (notArg) {
-        return expect(pageTitle).to.not.equal(text);
+        return expect(pageTitle.indexOf(text)).to.equal(-1);
     }
     else {
-        return expect(pageTitle).to.be.equal(text);
+        return expect(pageTitle.indexOf(text)).to.not.equal(-1);
     }
 });

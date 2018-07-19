@@ -25,3 +25,8 @@ When(/^I wait until "([^"]*)" is present$/, (alias) => {
     const element = elementHelper.getPageObjectElement(alias);
     return browser.wait(EC.presenceOf(element), 10 * 1000);
 });
+
+When(/^I wait until "([^"]*)" is clickable$/, (alias) => {
+    const element = elementHelper.getPageObjectElement(alias);
+    return browser.wait(EC.elementToBeClickable(element), 10 * 1000);
+});
