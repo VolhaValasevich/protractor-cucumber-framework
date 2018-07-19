@@ -1,7 +1,7 @@
 {
-  "name": "simple_protractor_cucumber_framework",
+  "name": "protractor-cucumber-framework",
   "version": "1.0.0",
-  "description": "A simple proctractor and cucumber bdd test automation framework",
+  "description": "",
   "main": "index.js",
   "dependencies": {
     "chai": "^4.1.2",
@@ -12,17 +12,18 @@
     "protractor-cucumber-framework": "^4.1.1",
     "yargs": "^11.0.0"
   },
-  "devDependencies": {},
   "scripts": {
-    "e2e": "protractor ./test/e2e/config/config.js",
-    "postinstall": "webdriver-manager update",
-    "pree2e": "start cmd /k \"node_modules\\.bin\\webdriver-manager start\"",
-    "poste2e": "node reporter.js",
-    "e2e:update": "webdriver-manager update",
-    "e2e:no-server-start": "protractor ./test/e2e/config/config.js",
-    "e2e:generate-report": "node reporter.js",
-    "e2e:start-server": "start cmd /k \"node_modules\\.bin\\webdriver-manager start\""
+    "test": "protractor config.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VolhaValasevich/protractor-cucumber-framework.git"
+  },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VolhaValasevich/protractor-cucumber-framework/issues"
+  },
+  "homepage": "https://github.com/VolhaValasevich/protractor-cucumber-framework#readme"
 }
