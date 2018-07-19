@@ -12,8 +12,5 @@ Feature: Mobile Plans
 
     Examples:
       | Number | Price |
-      | First  | 70    |
-      | Second | 60    |
-      | Third  | 47    |
       | Fourth | 40    |
       

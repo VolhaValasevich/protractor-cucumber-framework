@@ -13,7 +13,8 @@
     "yargs": "^11.0.0"
   },
   "scripts": {
-    "test": "protractor config.js"
+    "test": "protractor config.js",
+    "posttest": "node reporter.js"
   },
   "repository": {
     "type": "git",
