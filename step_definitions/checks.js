@@ -3,12 +3,6 @@ const {Then, When, Given} = require('cucumber');
 const expect = require('chai').expect;
 const elementHelper = require('./util/stepFunctions.js');
 
-Then(/^"([^"]*)" should( not)? be visible$/, async (alias, notArg) => {
-    let element = elementHelper.getPageObjectElement(alias);
-    let result = await element.isPresent();
-    return expect(result).to.be.equal(!notArg);
-});
-
 Then(/^Text of "([^"]*)" should( not)? contain "([^"]*)"$/, async (alias, notArg, textToContain) => {
     let element = elementHelper.getPageObjectElement(alias);
     let elementText = await element.getText();
