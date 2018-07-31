@@ -5,7 +5,7 @@ const logger = require("./util/logger.js").logger;
 const helper = require('./util/elementHelper');
 
 Then(/^Text of "([^"]*)" should( not)? contain "([^"]*)"$/, async (alias, notArg, textToContain) => {
-    logger.finish("Checking text of " + alias);
+    logger.check("Checking text of " + alias);
     let elementText = await helper.getText(alias);
     if (notArg) {
         return expect(elementText.indexOf(textToContain)).to.equal(-1);
@@ -15,7 +15,7 @@ Then(/^Text of "([^"]*)" should( not)? contain "([^"]*)"$/, async (alias, notArg
 });
 
 Then(/^Text of "([^"]*)" should( not)? equal "([^"]*)"$/, async (alias, notArg, text) => {
-    logger.finish("Checking text of " + alias);
+    logger.check("Checking text of " + alias);
     let elementText = await helper.getText(alias);
     if (notArg) {
         return expect(elementText).to.not.equal(text);
@@ -25,7 +25,7 @@ Then(/^Text of "([^"]*)" should( not)? equal "([^"]*)"$/, async (alias, notArg, 
 });
 
 Then(/^Page title should( not)? contain "([^"]*)"$/, async (notArg, text) => {
-    logger.finish("Checking page title to contain " + text);
+    logger.check("Checking page title to contain " + text);
     let pageTitle = await helper.getTitle();
     if (notArg) {
         return expect(pageTitle.indexOf(text)).to.equal(-1);

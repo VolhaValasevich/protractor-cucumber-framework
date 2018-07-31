@@ -8,15 +8,15 @@ const myFormat = printf(info => {
 const myCustomLevels = {
     levels: {
         fail: 0,
-        start: 1,
+        action: 1,
         info: 2,
-        finish: 3
+        check: 3
     },
     colors: {
         fail: 'red',
-        start: 'yellow',
+        action: 'yellow',
         info: 'white',
-        finish: 'green'
+        check: 'blue'
     }
 };
 
@@ -37,7 +37,8 @@ class Logger {
                             all: true
                         }),
                         myFormat
-                    )
+                    ),
+                    level: "check"
                 }),
                 new transports.File({filename: 'combined.log'})
             ]
