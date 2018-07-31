@@ -15,7 +15,7 @@ gulp.task('start', ['server'], () => {
 });
 
 gulp.task('server', (done) => {
-    gulp.src('', { read: false })
+    gulp.src('', {read: false})
         .pipe(shell([
             'start cmd /k "node_modules\\.bin\\webdriver-manager start"'
         ]));
@@ -26,14 +26,14 @@ gulp.task('server', (done) => {
 
 
 gulp.task('npm_install', () => {
-    return gulp.src('', { read: false })
+    return gulp.src('', {read: false})
         .pipe(shell([
             'npm install'
         ]));
 });
 
 gulp.task('linter', () => {
-    return gulp.src('', { read: false })
+    return gulp.src('', {read: false})
         .pipe(shell([
             'eslint ./ --fix'
         ]));
@@ -42,7 +42,7 @@ gulp.task('linter', () => {
 gulp.task('build', ['npm_install', 'linter']);
 
 gulp.task('report', () => {
-    return gulp.src('', { read: false })
+    return gulp.src('', {read: false})
         .pipe(shell([
             'node reporter.js'
         ]));

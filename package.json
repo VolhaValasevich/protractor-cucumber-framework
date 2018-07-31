@@ -20,7 +20,7 @@
     "gulp-protractor": "^4.1.0"
   },
   "scripts": {
-    "postinstall": "mkdir reports",
+    "postinstall": "mkdir reports && node ./node_modules/protractor/bin/webdriver-manager update",
     "test": "node ./node_modules/protractor/bin/protractor config.js",
     "posttest": "node reporter.js",
     "eslint": "node ./node_modules/eslint/bin/eslint.js *.js"
