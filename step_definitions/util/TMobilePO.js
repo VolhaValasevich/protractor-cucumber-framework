@@ -12,6 +12,9 @@ class TMobilePO {
             "Monthly Price": "div.price-container.active div.price",
             "Military Plans Button": "a[data-analytics-id='WEB-26806-military-available -buttonCta']",
             "Verify Military Status Button": "a[aria-label='Click to verify military status.']",
+            "Pricing Container": "div.pricing",
+            "Pricing Modal Window": "div.modal-container",
+            "Pricing Modal Window Header": "table.pricing-table th",
 
             // elements from "Store" page
             "Filter Button": "button[id='dropdownMenu1']",
