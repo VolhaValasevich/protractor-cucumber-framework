@@ -12,7 +12,12 @@
     "protractor": "^5.2.2",
     "protractor-cucumber-framework": "^4.1.1",
     "winston": "^3.0.0",
-    "yargs": "^11.0.0"
+    "yargs": "^11.0.0",
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.6.5",
+    "run-sequence": "^2.2.1",
+    "gulp-cli": "^2.0.1",
+    "gulp-protractor": "^4.1.0"
   },
   "scripts": {
     "postinstall": "mkdir reports",
