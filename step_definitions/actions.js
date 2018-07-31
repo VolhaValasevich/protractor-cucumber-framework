@@ -1,32 +1,29 @@
 "use strict";
 const {When} = require('cucumber');
-const EC = protractor.ExpectedConditions;
-const elementHelper = require('./util/stepFunctions.js');
+const helper = require('./util/elementHelper');
 const {setDefaultTimeout} = require('cucumber');
 setDefaultTimeout(60 * 1000);
 
 When(/^I open "([^"]*)" url$/, (url) => {
-    return browser.get(url);
+    return helper.getUrl(url);
 });
 
 When(/^I click "([^"]*)"$/, (alias) => {
-    return elementHelper.getPageObjectElement(alias).click();
+    return helper.click(alias);
 });
 
 When(/^I click link "([^"]*)"$/, (linktext) => {
-    return element(by.linkText(linktext)).click();
+    return helper.clickLink(linktext);
 });
 
 When(/^I drag "([^"]*)" to "([^"]*)"$/, (element, target) => {
-    return browser.actions().dragAndDrop(elementHelper.getPageObjectElement(element), elementHelper.getPageObjectElement(target)).mouseUp().perform();
+    return helper.dragAndDrop(element, target);
 });
 
 When(/^I wait until "([^"]*)" is present$/, (alias) => {
-    const element = elementHelper.getPageObjectElement(alias);
-    return browser.wait(EC.presenceOf(element), 10 * 1000);
+    return helper.waitUntilPresent(alias);
 });
 
 When(/^I wait until "([^"]*)" is clickable$/, (alias) => {
-    const element = elementHelper.getPageObjectElement(alias);
-    return browser.wait(EC.elementToBeClickable(element), 10 * 1000);
+    return helper.waitUntilClickable(alias);
 });

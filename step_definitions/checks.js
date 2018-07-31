@@ -1,11 +1,10 @@
 "use strict";
 const {Then} = require('cucumber');
 const expect = require('chai').expect;
-const elementHelper = require('./util/stepFunctions.js');
+const helper = require('./util/elementHelper');
 
 Then(/^Text of "([^"]*)" should( not)? contain "([^"]*)"$/, async (alias, notArg, textToContain) => {
-    let element = elementHelper.getPageObjectElement(alias);
-    let elementText = await element.getText();
+    let elementText = await helper.getText(alias);
     if (notArg) {
         return expect(elementText.indexOf(textToContain)).to.equal(-1);
     } else {
@@ -14,8 +13,7 @@ Then(/^Text of "([^"]*)" should( not)? contain "([^"]*)"$/, async (alias, notArg
 });
 
 Then(/^Text of "([^"]*)" should( not)? equal "([^"]*)"$/, async (alias, notArg, text) => {
-    let element = elementHelper.getPageObjectElement(alias);
-    let elementText = await element.getText();
+    let elementText = await helper.getText(alias);
     if (notArg) {
         return expect(elementText).to.not.equal(text);
     } else {
@@ -24,7 +22,7 @@ Then(/^Text of "([^"]*)" should( not)? equal "([^"]*)"$/, async (alias, notArg, 
 });
 
 Then(/^Page title should( not)? contain "([^"]*)"$/, async (notArg, text) => {
-    let pageTitle = await browser.getTitle();
+    let pageTitle = await helper.getTitle();
     if (notArg) {
         return expect(pageTitle.indexOf(text)).to.equal(-1);
     } else {
