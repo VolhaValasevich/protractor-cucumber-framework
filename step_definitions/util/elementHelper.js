@@ -14,6 +14,11 @@ class ElementHelper {
         return browser.get(url);
     }
 
+    getTitle() {
+        logger.info("Getting page title");
+        return browser.getTitle();
+    }
+
     click(alias) {
         logger.info("Clicking on " + alias);
         return this.getPageObjectElement(alias).click();
