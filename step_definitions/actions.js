@@ -1,8 +1,8 @@
 "use strict";
-const { Then, When, Given } = require('cucumber');
+const {When} = require('cucumber');
 const EC = protractor.ExpectedConditions;
 const elementHelper = require('./util/stepFunctions.js');
-const { setDefaultTimeout } = require('cucumber');
+const {setDefaultTimeout} = require('cucumber');
 setDefaultTimeout(60 * 1000);
 
 When(/^I open "([^"]*)" url$/, (url) => {
@@ -19,7 +19,7 @@ When(/^I click link "([^"]*)"$/, (linktext) => {
 
 When(/^I drag "([^"]*)" to "([^"]*)"$/, (element, target) => {
     return browser.actions().dragAndDrop(elementHelper.getPageObjectElement(element), elementHelper.getPageObjectElement(target)).mouseUp().perform();
-})
+});
 
 When(/^I wait until "([^"]*)" is present$/, (alias) => {
     const element = elementHelper.getPageObjectElement(alias);

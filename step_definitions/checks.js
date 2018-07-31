@@ -1,5 +1,5 @@
 "use strict";
-const {Then, When, Given} = require('cucumber');
+const {Then} = require('cucumber');
 const expect = require('chai').expect;
 const elementHelper = require('./util/stepFunctions.js');
 
@@ -27,8 +27,7 @@ Then(/^Page title should( not)? contain "([^"]*)"$/, async (notArg, text) => {
     let pageTitle = await browser.getTitle();
     if (notArg) {
         return expect(pageTitle.indexOf(text)).to.equal(-1);
-    }
-    else {
+    } else {
         return expect(pageTitle.indexOf(text)).to.not.equal(-1);
     }
 });

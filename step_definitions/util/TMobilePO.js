@@ -19,7 +19,7 @@ class TMobilePO {
             "LG Checkbox": "label[for='filter-pm-1']",
             "Samsung Checkbox": "label[for='filter-pm-2']",
             "First Search Result": "a.product-name"
-        }
+        };
     }
 }
 
